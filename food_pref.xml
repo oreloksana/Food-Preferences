@@ -1,0 +1,197 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Food Preferences ER Model">
+    <mxGraphModel dx="1800" dy="1200" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2200" pageHeight="1600">
+      <root>
+
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- USER -->
+        <mxCell id="user" value="USER&#xa;----------------&#xa;PK anon_id : INT&#xa;region : VARCHAR(100)"
+                style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;"
+                vertex="1" parent="1">
+          <mxGeometry x="40" y="50" width="220" height="100" as="geometry"/>
+        </mxCell>
+
+        <!-- SEARCH CATEGORY -->
+        <mxCell id="search_category" value="SEARCH_CATEGORY&#xa;----------------&#xa;PK cat_id : INT&#xa;category_name : VARCHAR(100)&#xa;service_type : VARCHAR(50)"
+                style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontStyle=1;"
+                vertex="1" parent="1">
+          <mxGeometry x="420" y="50" width="260" height="120" as="geometry"/>
+        </mxCell>
+
+        <!-- LOCATION -->
+        <mxCell id="location" value="LOCATION&#xa;----------------&#xa;PK location_id : INT&#xa;city : VARCHAR(100)&#xa;state_code : VARCHAR(2)"
+                style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;"
+                vertex="1" parent="1">
+          <mxGeometry x="800" y="50" width="230" height="120" as="geometry"/>
+        </mxCell>
+
+        <!-- SEARCH -->
+        <mxCell id="search" value="SEARCH&#xa;----------------&#xa;PK search_id : INT&#xa;FK anon_id : INT&#xa;FK cat_id : INT&#xa;FK location_id : INT&#xa;query_text : VARCHAR(255)&#xa;query_time : TIMESTAMP"
+                style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;"
+                vertex="1" parent="1">
+          <mxGeometry x="400" y="260" width="280" height="180" as="geometry"/>
+        </mxCell>
+
+        <!-- SEARCH ITEM -->
+        <mxCell id="search_item" value="SEARCH_ITEM&#xa;----------------&#xa;PK bf_id : INT&#xa;kombiniertes_wort : VARCHAR(255)&#xa;anzahl_suchen : INT&#xa;FK cat_id : INT"
+                style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontStyle=1;"
+                vertex="1" parent="1">
+          <mxGeometry x="40" y="300" width="260" height="140" as="geometry"/>
+        </mxCell>
+
+        <!-- RECIPE -->
+        <mxCell id="recipe" value="RECIPE&#xa;----------------&#xa;PK recipe_id : INT&#xa;name : VARCHAR(150)&#xa;prep_time : INT"
+                style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;"
+                vertex="1" parent="1">
+          <mxGeometry x="1150" y="260" width="230" height="120" as="geometry"/>
+        </mxCell>
+
+        <!-- SEARCH RECIPE -->
+        <mxCell id="search_recipe" value="SEARCH_RECIPE&#xa;----------------&#xa;PK/FK search_id : INT&#xa;PK/FK recipe_id : INT"
+                style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontStyle=1;"
+                vertex="1" parent="1">
+          <mxGeometry x="800" y="280" width="240" height="110" as="geometry"/>
+        </mxCell>
+
+        <!-- FOOD ORDER -->
+        <mxCell id="food_order" value="FOOD_ORDER&#xa;----------------&#xa;PK order_id : INT&#xa;FK anon_id : INT&#xa;order_sum : DECIMAL(10,2)&#xa;order_time : TIMESTAMP&#xa;status : VARCHAR(50)"
+                style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;"
+                vertex="1" parent="1">
+          <mxGeometry x="40" y="570" width="250" height="160" as="geometry"/>
+        </mxCell>
+
+        <!-- SEARCH TREND -->
+        <mxCell id="search_trend" value="SEARCH_TREND&#xa;----------------&#xa;PK trend_id : INT&#xa;FK cat_id : INT&#xa;search_date : DATE&#xa;state_name : VARCHAR(50)&#xa;search_count : INT"
+                style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontStyle=1;"
+                vertex="1" parent="1">
+          <mxGeometry x="390" y="570" width="260" height="160" as="geometry"/>
+        </mxCell>
+
+        <!-- TIME PERIOD -->
+        <mxCell id="time_period" value="TIME_PERIOD&#xa;----------------&#xa;PK time_id : INT&#xa;period_name : VARCHAR(50)"
+                style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;"
+                vertex="1" parent="1">
+          <mxGeometry x="780" y="570" width="220" height="100" as="geometry"/>
+        </mxCell>
+
+        <!-- EATING PATTERN -->
+        <mxCell id="eating_pattern" value="EATING_PATTERN&#xa;----------------&#xa;PK pattern_id : INT&#xa;FK time_id : INT&#xa;FK cat_id : INT&#xa;search_count : INT"
+                style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontStyle=1;"
+                vertex="1" parent="1">
+          <mxGeometry x="1090" y="550" width="250" height="140" as="geometry"/>
+        </mxCell>
+
+        <!-- SEARCH HOURLY -->
+        <mxCell id="search_hourly" value="SEARCH_HOURLY&#xa;----------------&#xa;PK hour_of_day : INT&#xa;PK/FK cat_id : INT&#xa;search_count : INT"
+                style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontStyle=1;"
+                vertex="1" parent="1">
+          <mxGeometry x="390" y="850" width="240" height="120" as="geometry"/>
+        </mxCell>
+
+        <!-- INTEREST TRANSITION -->
+        <mxCell id="interest_transition" value="INTEREST_TRANSITION&#xa;----------------&#xa;PK transition_id : INT&#xa;FK prev_cat_id : INT&#xa;FK new_cat_id : INT&#xa;switch_count : INT"
+                style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontStyle=1;"
+                vertex="1" parent="1">
+          <mxGeometry x="760" y="830" width="260" height="140" as="geometry"/>
+        </mxCell>
+
+        <!-- SEARCH CLICK -->
+        <mxCell id="search_click" value="SEARCH_CLICK&#xa;----------------&#xa;PK click_id : INT&#xa;FK search_id : INT&#xa;item_rank : INT&#xa;click_url : VARCHAR(500)"
+                style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontStyle=1;"
+                vertex="1" parent="1">
+          <mxGeometry x="1090" y="830" width="260" height="140" as="geometry"/>
+        </mxCell>
+
+
+        <!-- RELATIONSHIPS -->
+
+        <mxCell id="e1" value="1 : N"
+                style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=ERmany;startArrow=ERone;"
+                edge="1" parent="1" source="user" target="search">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e2" value="1 : N"
+                style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=ERmany;startArrow=ERone;"
+                edge="1" parent="1" source="search_category" target="search">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e3" value="1 : N"
+                style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=ERmany;startArrow=ERone;"
+                edge="1" parent="1" source="location" target="search">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e4" value="1 : N"
+                style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=ERmany;startArrow=ERone;"
+                edge="1" parent="1" source="search_category" target="search_item">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e5" value="1 : N"
+                style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=ERmany;startArrow=ERone;"
+                edge="1" parent="1" source="search" target="search_recipe">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e6" value="1 : N"
+                style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=ERmany;startArrow=ERone;"
+                edge="1" parent="1" source="recipe" target="search_recipe">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e7" value="1 : N"
+                style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=ERmany;startArrow=ERone;"
+                edge="1" parent="1" source="user" target="food_order">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e8" value="1 : N"
+                style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=ERmany;startArrow=ERone;"
+                edge="1" parent="1" source="search_category" target="search_trend">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e9" value="1 : N"
+                style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=ERmany;startArrow=ERone;"
+                edge="1" parent="1" source="time_period" target="eating_pattern">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e10" value="1 : N"
+                style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=ERmany;startArrow=ERone;"
+                edge="1" parent="1" source="search_category" target="eating_pattern">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e11" value="1 : N"
+                style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=ERmany;startArrow=ERone;"
+                edge="1" parent="1" source="search_category" target="search_hourly">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e12" value="previous"
+                style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=ERmany;startArrow=ERone;"
+                edge="1" parent="1" source="search_category" target="interest_transition">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e13" value="new"
+                style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=ERmany;startArrow=ERone;"
+                edge="1" parent="1" source="search_category" target="interest_transition">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e14" value="1 : N"
+                style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=ERmany;startArrow=ERone;"
+                edge="1" parent="1" source="search" target="search_click">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
